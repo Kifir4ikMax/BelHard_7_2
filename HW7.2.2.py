@@ -1,4 +1,4 @@
-"""Задание 2 (НЕ ДОДЕЛАЛ!!!)
+"""Задание 2 (ДОДЕЛАЛ!!!)
 
 Добавить в класс Dog метод change_name. Метод принимает на вход новое имя и
 меняет атрибут имени у объекта. Создать один объект класса. Вывести имя.
@@ -7,41 +7,46 @@
 """
 
 
-#Создаём класс и инициализируем атрибуты класса
+# Создаём класс и инициализируем атрибуты класса
 class Dog:
-    def __init__(self, dog_cls_attr_name, dog_cls_attr_height, dog_cls_attr_weight, dog_cls_attr_age):
-        self.dog_cls_attr_name = dog_cls_attr_name
-        self.dog_cls_attr_height = dog_cls_attr_height
-        self.dog_cls_attr_weight = dog_cls_attr_weight
-        self.dog_cls_attr_age = dog_cls_attr_age
-        
+    def __init__(self, name: str, height: int, weight: int, age: int):
+        self.dog_attr_name = name
+        self.dog_attr_height = height
+        self.dog_attr_weight = weight
+        self.dog_attr_age = age
 
-#Добавляем методы класса
-    def jump():
-        print("Doggy jumps.")
-    
-    
-    def run():
-        print("Doggy runs.") 
-    
-    
-    def bark():
+    # Добавляем методы класса
+    def jump(self):
+        print(f"Doggy jumps.")
+
+    def run(self):
+        print("Doggy runs.")
+
+    def bark(self):
         print("Doggy barks.")
-        
 
-#Добавляем объект 
+    # Добавляем метод замены имени
+    def change_name(self, name):
+        self.dog_attr_name = name
+
+
+# Добавляем объект
 doggy_1 = Dog("Fluffy", 15, 20, 5)
 
 
-#Выводим атрибуты и методы
+# Выводим атрибуты и методы
 print(
-    f"Name of the dog is {doggy_1.dog_cls_attr_name}, he is {doggy_1.dog_cls_attr_height} cm tall, his weight is {doggy_1.dog_cls_attr_weight} and he is {doggy_1.dog_cls_attr_age} years old."
-    )
+    f"Name of the dog is {doggy_1.dog_attr_name}, he is {doggy_1.dog_attr_height} cm tall, his weight is {doggy_1.dog_attr_weight} and he is {doggy_1.dog_attr_age} years old."
+)
+doggy_1.bark()
+doggy_1.jump()
+doggy_1.run()
+print(doggy_1.dog_attr_name)
 
 
-Dog.bark()
-Dog.jump()
-Dog.run()
+# Меняем имя
+doggy_1.change_name("Whitey")
+print(doggy_1.dog_attr_name)
 
 
 """Вывод
@@ -50,5 +55,7 @@ Name of the dog is Fluffy, he is 15 cm tall, his weight is 20 and he is 5 years 
 Doggy barks.
 Doggy jumps.
 Doggy runs.
+Fluffy
+Whitey
 
 """
